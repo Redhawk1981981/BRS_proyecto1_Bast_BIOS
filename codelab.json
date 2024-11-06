@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-11-06T22:10:32+01:00",
+  "id": "Bastionado_BIOS/UEFI",
+  "duration": 0,
+  "title": "BASTIONADO DE BIOS/UEFI",
+  "summary": "Bastionado de BIOS/UEFI",
+  "source": "codelab.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "bios",
+    "bastionado"
+  ],
+  "tags": [
+    "bios"
+  ],
+  "feedback": "https://github.com/Redhawk1981981/BRS_proyecto1_Bast_BIOS",
+  "url": "Bastionado_BIOS/UEFI"
+}

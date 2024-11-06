@@ -1,0 +1,115 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>BASTIONADO DE BIOS/UEFI</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="Bastionado_BIOS/UEFI"
+                  title="BASTIONADO DE BIOS/UEFI"
+                  environment="web"
+                  feedback-link="https://github.com/Redhawk1981981/BRS_proyecto1_Bast_BIOS">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>En esta primera actividad, vamos a realizar el bastionado de una BIOS/UEFI, lo cual consiste en aplicar la mayor cantidad de medidas de seguridad posibles para proteger nuestro equipo en el arranque.</p>
+<p>Para ello he utilizado el emulador de Bios de Lenovo que se proporcionó en la descripción de la misma. En concreto, he usado la Bios de un Lenovo v55T-15ARE</p>
+<p class="image-container"><img alt="alt text" src="img/379bb7ca5f2f182.png"></p>
+<p class="image-container"><img alt="alt text" src="img/35dea4a07d70fbf7.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Bastionado de la BIOS" duration="0">
+        <h2 is-upgraded>Puertos USB</h2>
+<p>Una vez accedemos a la BIOS, lo primero que veremos sera la pantalla principal, donde se nos mostraran las principales características del equipo.</p>
+<p class="image-container"><img alt="alt text" src="img/450ebc61b49c91ae.png"></p>
+<p>La primera configuración que podríamos hacer, y digo podríamos porque es desactivar el uso de los puertos USB, y quizás sea una medida demasiado extrema, ya que una vez arranque el equipo, no dispondremos de los puertos USB, esto seria solo útil si sabemos que no vamos a necesitarlos. Si es nuestro caso y no los necesitamos, entonces, seleccionaremos la opción Devices en el menú de la izquierda.</p>
+<p class="image-container"><img alt="alt text" src="img/a73af506d1b9d64b.png"></p>
+<p>Una vez dentro del menú de dispositivos, seleccionaremos la configuración de los USB.</p>
+<p class="image-container"><img alt="alt text" src="img/6e671b8016f3bf79.png"></p>
+<p>Y desactivaremos las opciones:</p>
+<ul>
+<li>USB Port Access: Con la que desactivamos el funcionamiento de los puertos USB</li>
+<li>Front USB Ports: Con lo que desactivamos los puertos USB frontales.</li>
+<li>Rear USB Ports: Con lo que desactivamos los puertos USB traseros.</li>
+</ul>
+<p class="image-container"><img alt="alt text" src="img/cac178bb456a6f32.png"></p>
+<h2 is-upgraded>Contraseñas y opciones de HDD</h2>
+<p>Ahora, vamos a ver como podemos configurar contraseñas para los discos duros y para el acceso a la BIOS.</p>
+<p>Seleccionamos la opción &#34;Security&#34; en el menú de la izquierda y comenzaremos por asignar contraseña para el usuario administrador de la BIOS, es decir, el usuario que tendrá privilegios para hacer cambios. Así, que seleccionaremos &#34;Set supervisor password&#34;</p>
+<p class="image-container"><img alt="alt text" src="img/8f13c7f3139bb173.png"></p>
+<p>y nos aparecerá una ventana donde introducimos la contraseña.</p>
+<p class="image-container"><img alt="alt text" src="img/af424b59b87c7d01.png"></p>
+<p>Seguidamente configuraremos una contraseña para proteger el encendido del equipo, es decir, se nos solicitará esta contraseña cuando encendamos el equipo, si así lo activamos en la opción pertinente. Para ello hacemos lo mismo pero con la opción &#34;Set Power-on password&#34;.</p>
+<p class="image-container"><img alt="alt text" src="img/2860930cc865a087.png"></p>
+<p class="image-container"><img alt="alt text" src="img/66f2b27e01d2c7aa.png"></p>
+<p>Ahora, podemos también configurar, activandolo según se prefiera, lo siguiente:</p>
+<ul>
+<li>Secure Roll back prevention: con lo que evitaremos que se pueda flashear una versión anterior de la que está instalada en este momento.</li>
+<li>Require SVP when flashing: así haremos que se solicite la contraseña de supervisor cuando se quiera flashear una versión de la BIOS.</li>
+<li>BIOS password at system boot: Si lo activamos, se nos solicitará la contraseña de arranque que configuramos anteriormente, al arrancar el equipo.</li>
+<li>BIOS password at reboot: Esta opción es similar a la anterior, pero haremos que se nos solicite, o no, la contraseña de arranque cuando reiniciemos nuestro equipo.</li>
+<li>POP changeable by user: Con esta opción, haremos que solo el usuario supervisor pueda cambiar la contraseña de arranque.</li>
+<li>BIOS password at boot device list: Cuando en el arranque se pulse F12 para seleccionar el dispositivo desde el que arrancar, se nos solicitará la contraseña de supervisor.</li>
+</ul>
+<p class="image-container"><img alt="alt text" src="img/5a1a25eaa2b51c0.png"></p>
+<p>Otra opción de seguridad que podemos activar es &#34;SMART USB Protection&#34;, con la que conseguiremos, en función de como lo configuremos, que solo se pueda copiar desde el equipo al USB y no al revés, o viceversa, o que solo se pueda leer desde los USB.</p>
+<p class="image-container"><img alt="alt text" src="img/e697f3966a65930e.png"></p>
+<p>También podemos configurar una contraseña para el Disco Duro, para ello seleccionamos la opción &#34;Hard Disk Password&#34;, donde podremos seleccionar que unidades son las que queremos proteger con contraseña. Si lo configuramos normal, se nos pedirá esta contraseña cuando se acceda por primera vez al disco protegido, pero podemos hacer que se nos pida cada vez que el disco salga del estado de reposo si marcamos la opción &#34;Require HDP on system boot&#34;.</p>
+<p class="image-container"><img alt="alt text" src="img/c624aa63dd166ab5.png"></p>
+<p class="image-container"><img alt="alt text" src="img/a9c9b3533a97a254.png"></p>
+<h2 is-upgraded>Otras opciones de seguridad</h2>
+<p>Una opción muy curiosa que nos ofrece esta BIOS, es que podemos realizar un borrado seguro de disco duro, accediendo a &#34;Security Erase HDD Data&#34;, en la que podremos seleccionar el disco al que queremos eliminar los datos de forma segura.</p>
+<p class="image-container"><img alt="alt text" src="img/e2813afef49b9619.png"></p>
+<p class="image-container"><img alt="alt text" src="img/b9df1d56555e31ba.png"></p>
+<p>Si accedemos a &#34;TCG Feature Setup&#34;, podemos configurar si activamos el chip de seguridad TPM 2.0 de Microsoft.</p>
+<p class="image-container"><img alt="alt text" src="img/c80d80027afae249.png"></p>
+<p class="image-container"><img alt="alt text" src="img/bb6c9ca3288ca5a0.png"></p>
+<p>También podemos activar el Secure Boot, usando la opción con ese mismo nombre.</p>
+<p class="image-container"><img alt="alt text" src="img/fc37cca3a601f19d.png"></p>
+<p class="image-container"><img alt="alt text" src="img/7ce18134cdab8e47.png"></p>
+<p>Otras opciones de seguridad bastante interesantes son:</p>
+<ul>
+<li>Un protector contra Malware.</li>
+<li>Un detector de intrusión física, detectando si alguien ha abierto la tapa del equipo.</li>
+<li>Un detector de modificación en la configuración, es decir, si algún dispositivo es quitado o instalado, habrá que confirmarlo antes de que funcione accediendo a la BIOS e identificándose como Supervisor.</li>
+<li>Un contador de contraseñas erróneas, que bloqueara los intentos fraudulentos de introducción de contraseñas.</li>
+</ul>
+<p class="image-container"><img alt="alt text" src="img/dfa92faabd5ce902.png"></p>
+<p>Finalmente, como configuracion de seguridad también importante, podemos excluir de la secuencia de arranque los dispositivos USB, así no se podrá arrancar el equipo con un disco duro externo, un Pendrive, etc.</p>
+<p class="image-container"><img alt="alt text" src="img/e199504e0e6d8d.png"></p>
+<p class="image-container"><img alt="alt text" src="img/af876a77b8ef556c.png"></p>
+<p>Y bueno, es muy importante que después de haber realizado las modificaciones, guardemos los cambios, o no habrá servido para nada y la BIOS/UEFI de nuestro equipo seguirá estando insegura.</p>
+<p class="image-container"><img alt="alt text" src="img/d49e529da72fb611.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
